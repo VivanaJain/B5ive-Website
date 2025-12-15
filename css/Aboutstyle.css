@@ -1,0 +1,501 @@
+
+/* =========================================
+   0. GLOBAL RESET & HTML/BODY STYLES
+   ========================================= */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#hover-bg {
+    display: none;
+}
+
+/* =========================================
+   1. FONTS & DESIGN TOKENS
+   ========================================= */
+@font-face {
+    font-family: "Futura PT";
+    src: url("futura-pt-book.woff2") format("woff2"),
+         url("futura-pt-book.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Futura PT";
+    src: url("futura-pt-bold.woff2") format("woff2"),
+         url("futura-pt-bold.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Miller Banner Extra Compressed";
+    src: url("MillerBannerExtraCompressed.woff2") format("woff2"),
+         url("FONT/fonnts.com-Miller_Banner_Extra_Compressed_Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Miller Banner Extra Compressed Regular";
+    src: url("MillerBannerExtraCompressedRegular.woff2") format("woff2"),
+         url("FONT/fonnts.com-Miller_Banner_Extra_Compressed_Regular.otf") format("opentype");
+}
+
+:root {
+    --header-font: "Miller Banner Extra Compressed", serif;
+    --body-font: "Futura PT", system-ui, Arial, sans-serif;
+    --denim-900: #0b2a47;
+    --denim-700: #1b4b7a;
+    --denim-500: #3b6fa6;
+    --text: #0b0b0b;
+    --muted-text: rgba(0, 0, 0, 0.66);
+    --bg-plain: #ffffff;
+    --muted-bg: #f5f9fc;
+    --accent-red: #d32f2f;
+    --elev: rgba(11, 42, 71, 0.06);
+    --container-max: 1200px;
+    --dropdown-gap: 6px;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+body {
+    font-family: var(--body-font);
+    color: #0b2a47;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, .serif-font {
+    font-family: var(--header-font);
+    color: #0b2a47;
+    letter-spacing: 0.6px;
+}
+
+/* =========================================
+   3. NAVBAR & LOGO
+   ========================================= */
+.navbar-brand img {
+    max-height: 45px;
+    width: auto;
+    filter: none;
+}
+
+.nav-link {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #0b2a47 !important;
+    transition: all 0.2s ease-in-out;
+    padding: 8px 18px !important;
+    margin: 0 5px;
+}
+
+.nav-link:hover {
+    background-image: url("denim texture.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    transform: none;
+}
+
+.nav-link.active {
+    background-image: url("denim-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+    transition: none;
+}
+
+.nav-link:focus {
+    outline: 2px solid #0b2a47;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   4. NAV ICONS
+   ========================================= */
+.nav-icons {
+    align-items: center;
+}
+
+.nav-icons .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 18px;
+    text-decoration: none;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0.95;
+}
+
+.nav-icons .nav-icon:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.nav-icons .nav-icon svg .outline { display: inline; }
+.nav-icons .nav-icon svg .filled { display: none; }
+.nav-icons .nav-icon.active svg .outline { display: none; }
+.nav-icons .nav-icon.active svg .filled { display: inline; }
+
+.nav-icons .nav-icon svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-icons .nav-icon svg path,
+.nav-icons .nav-icon svg circle,
+.nav-icons .nav-icon svg g {
+    vector-effect: non-scaling-stroke;
+}
+
+/* =========================================
+   5. DROPDOWN / MEGA MENU
+   ========================================= */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.custom-mega {
+    position: absolute;
+    top: calc(100% - var(--dropdown-gap));
+    left: 0;
+    width: 760px;
+    padding: 20px;
+    display: none;
+    background-color: #fff;
+    color: #0b2a47;
+    box-shadow: 0 12px 40px rgba(11, 42, 71, 0.12);
+    border-radius: 4px;
+    z-index: 1200;
+    margin-top: 0;
+}
+
+.nav-item.dropdown:hover .custom-mega,
+.nav-item.dropdown:focus-within .custom-mega,
+.nav-item.dropdown.open .custom-mega {
+    display: block;
+}
+
+.custom-mega .mega-col {
+    float: left;
+    width: 33.3333%;
+    padding: 8px 16px;
+}
+
+.custom-mega h4 {
+    margin: 0 0 8px 0;
+    font-family: var(--header-font);
+    font-size: 14px;
+    color: #0b2a47;
+    letter-spacing: 0.4px;
+}
+
+.custom-mega a {
+    display: block;
+    color: #0b2a47;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 0.95rem;
+}
+
+.custom-mega a:hover { color: var(--denim-700); }
+
+.custom-mega::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 992px) {
+    .custom-mega {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        margin-top: var(--dropdown-gap);
+    }
+    .custom-mega .mega-col {
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+
+
+/* =========================================
+   6. PAGE TITLE
+   ========================================= */
+.page-title {
+    font-family: "Miller_Banner_Extra_Compressed_Regular.otf", serif;
+    font-size: 6rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* =========================================
+    FOOTER
+   ========================================= */
+
+.bfive-footer {
+    width: 100%;
+    background: linear-gradient(to bottom, #0A1522, #0F141A);
+    padding: 40px 0;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    height: 60px; /* adjust to match your exact logo size */
+}
+
+.footer-text {
+    color: #dcdcdc;
+    font-size: 14px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-box {
+    background: #e5e5e5;
+    padding: 12px 16px;
+    border-radius: 6px;
+    min-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.copy-btn {
+    background: #e5e5e5;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.copy-btn:hover {
+    background: #d6d6d6;
+}
+
+
+/* =========================================
+   10. RESPONSIVE STYLES
+   ========================================= */
+@media (max-width: 768px) {
+    .img-lg, .img-sm { height: auto; aspect-ratio: 3/4; }
+    .product-title { font-size: 2.5rem; }
+    .page-title { font-size: 3.5rem; }
+    .navbar-brand img { max-height: 35px; }
+
+    .image-rect, .image-container { margin-bottom: 8px; }
+
+    .col-lg-3:nth-child(2) .image-rect img { object-position: center 40%; }
+
+    .img-lg img { object-fit: cover; object-position: center 70; }
+
+    .image-container.img-lg:hover + .d-flex .product-title,
+    .image-container.img-lg:hover + .d-flex .product-price {
+        color: #fff !important;
+    }
+}
+
+
+
+/* =========================================
+  FOOTER
+   ========================================= */
+.site-footer {
+  background: linear-gradient(180deg, #0b1724 0%, #11151a 100%);
+  padding: 28px 48px;
+  color: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-logo {
+  width: 160px;
+  height: auto;
+}
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-logo {
+  width: 160px;
+  height: auto;
+}
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* contact boxes */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #dcdcdc;
+  padding: 10px 16px;
+  min-width: 260px;
+  color: #000;
+  border-radius: 2px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.contact-box svg {
+  width: 18px;
+  height: 18px;
+}
+.contact-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 42, 71, 0.06);
+}
+
+/* copy button */
+.copy-btn {
+  background: #dcdcdc;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.copy-btn.copied {
+  background: var(--accent-red) !important;
+  color: #fff !important;
+}
+
+/* ---------- UNIFIED CTA BUTTON STYLE (Shop Now / Shop the Look / Claim Reward) ---------- */
+.cta-btn,
+.spotted-cta,
+.claim-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px !important;
+  font-weight: 700;
+  font-family: var(--body-font);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.2, 1),
+    background 0.18s ease, box-shadow 0.22s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+.cta-btn:hover,
+.spotted-cta:hover,
+.claim-btn:hover {
+  background: var(--accent-red);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(211, 47, 47, 0.2);
+  color: #fff;
+}
+.cta-btn:active,
+.spotted-cta:active,
+.claim-btn:active {
+  transform: translateY(-1px);
+}
+.media-portrait .cta-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 26px;
+}
+

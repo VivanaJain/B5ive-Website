@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+/* =========================================
+   0. GLOBAL RESET & HTML/BODY STYLES
+   ========================================= */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#hover-bg {
+    display: none;
+}
+
+/* =========================================
+   1. FONTS & DESIGN TOKENS
+   ========================================= */
+@font-face {
+    font-family: "Futura PT";
+    src: url("futura-pt-book.woff2") format("woff2"),
+         url("futura-pt-book.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Futura PT";
+    src: url("futura-pt-bold.woff2") format("woff2"),
+         url("futura-pt-bold.woff") format("woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Miller Banner Extra Compressed";
+    src: url("MillerBannerExtraCompressed.woff2") format("woff2"),
+         url("FONT/fonnts.com-Miller_Banner_Extra_Compressed_Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Miller Banner Extra Compressed Regular";
+    src: url("MillerBannerExtraCompressedRegular.woff2") format("woff2"),
+         url("FONT/fonnts.com-Miller_Banner_Extra_Compressed_Regular.otf") format("opentype");
+}
+
+:root {
+    --header-font: "Miller Banner Extra Compressed", serif;
+    --body-font: "Futura PT", system-ui, Arial, sans-serif;
+    --denim-900: #0b2a47;
+    --denim-700: #1b4b7a;
+    --denim-500: #3b6fa6;
+    --text: #0b0b0b;
+    --muted-text: rgba(0, 0, 0, 0.66);
+    --bg-plain: #ffffff;
+    --muted-bg: #f5f9fc;
+    --accent-red: #d32f2f;
+    --elev: rgba(11, 42, 71, 0.06);
+    --container-max: 1200px;
+    --dropdown-gap: 6px;
+}
+
+/* =========================================
+   2. TYPOGRAPHY
+   ========================================= */
+body {
+    font-family: var(--body-font);
+    color: #0b2a47;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, .serif-font {
+    font-family: var(--header-font);
+    color: #0b2a47;
+    letter-spacing: 0.6px;
+}
+
+/* =========================================
+   3. NAVBAR & LOGO
+   ========================================= */
+.navbar-brand img {
+    max-height: 45px;
+    width: auto;
+    filter: none;
+}
+
+.nav-link {
+    font-family: var(--body-font);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #0b2a47 !important;
+    transition: all 0.2s ease-in-out;
+    padding: 8px 18px !important;
+    margin: 0 5px;
+}
+
+.nav-link:hover {
+    background-image: url("images/denim-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff !important;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    transform: none;
+}
+
+.nav-link.active {
+    background-image: url("images/denim-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff !important;
+    transition: none;
+}
+
+.nav-link:focus {
+    outline: 2px solid #0b2a47;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   4. NAV ICONS
+   ========================================= */
+.nav-icons {
+    align-items: center;
+}
+
+.nav-icons .nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 18px;
+    text-decoration: none;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+    font-size: 1.1rem;
+    color: #000;
+    opacity: 0.95;
+}
+
+.nav-icons .nav-icon:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.nav-icons .nav-icon svg .outline { display: inline; }
+.nav-icons .nav-icon svg .filled { display: none; }
+.nav-icons .nav-icon.active svg .outline { display: none; }
+.nav-icons .nav-icon.active svg .filled { display: inline; }
+
+.nav-icons .nav-icon svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-icons .nav-icon svg path,
+.nav-icons .nav-icon svg circle,
+.nav-icons .nav-icon svg g {
+    vector-effect: non-scaling-stroke;
+}
+
+/* =========================================
+   5. DROPDOWN / MEGA MENU
+   ========================================= */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.custom-mega {
+    position: absolute;
+    top: calc(100% - var(--dropdown-gap));
+    left: 0;
+    width: 760px;
+    padding: 20px;
+    display: none;
+    background-color: #fff;
+    color: #0b2a47;
+    box-shadow: 0 12px 40px rgba(11, 42, 71, 0.12);
+    border-radius: 4px;
+    z-index: 1200;
+    margin-top: 0;
+}
+
+.nav-item.dropdown:hover .custom-mega,
+.nav-item.dropdown:focus-within .custom-mega,
+.nav-item.dropdown.open .custom-mega {
+    display: block;
+}
+
+.custom-mega .mega-col {
+    float: left;
+    width: 33.3333%;
+    padding: 8px 16px;
+}
+
+.custom-mega h4 {
+    margin: 0 0 8px 0;
+    font-family: var(--header-font);
+    font-size: 14px;
+    color: #0b2a47;
+    letter-spacing: 0.4px;
+}
+
+.custom-mega a {
+    display: block;
+    color: #0b2a47;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 0.95rem;
+}
+
+.custom-mega a:hover { color: var(--denim-700); }
+
+.custom-mega::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 992px) {
+    .custom-mega {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        margin-top: var(--dropdown-gap);
+    }
+    .custom-mega .mega-col {
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+
+
+/* =========================================
+   6. PAGE TITLE
+   ========================================= */
+.page-title {
+    border-top: #0b2a47 2px solid;
+    border-bottom: #0b2a47 2px solid;
+    font-family: "Miller_Banner_Extra_Compressed_Regular.otf", serif;
+    font-size: 6rem;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
+
+.bfive-footer {
+    width: 100%;
+    background: linear-gradient(to bottom, #0A1522, #0F141A);
+    padding: 40px 0;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo {
+    height: 60px; /* adjust to match your exact logo size */
+}
+
+.footer-text {
+    color: #dcdcdc;
+    font-size: 14px;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-box {
+    background: #e5e5e5;
+    padding: 12px 16px;
+    border-radius: 6px;
+    min-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.copy-btn {
+    background: #e5e5e5;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.copy-btn:hover {
+    background: #d6d6d6;
+}
+
+
+
+/* =========================================
+  Scroll O TOP BUTTON
+   ========================================= */
+.scroll-top-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 40px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.scroll-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-top-btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+  WELCOME SECTION
+   ========================================= */
+
+/* WELCOME SECTION */
+.welcome {
+  margin-top: rem;
+}
+
+.welcome-grid {
+  height: 120px; /* 🔥 Sets total unified height */
+  
+}
+
+/* LEFT + RIGHT should stretch full height */
+.left-side,
+.right-side {
+  height: 100%;
+}
+
+/* Heading + small image share the height */
+.welcome-heading {
+  flex: 45%; /* You can adjust */
+  display: flex;
+  align-items: flex-start;
+}
+
+.welcome-heading h1 {
+  font-family: serif;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.welcome-img-small {
+  flex: 55%; /* adjust based on your design */
+}
+
+.welcome-img-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT SIDE */
+.welcome-img-tall {
+  flex: 55%;
+}
+
+.welcome-img-tall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.welcome-body {
+  flex: 45%;
+  padding: 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* LEFT TITLE */
+.welcome-title {
+  font-family:  serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+/* ALL IMAGE STYLES UNIFIED */
+#welcome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LEFT SMALL RECTANGLE (UNDER TEXT) */
+.welcome-img-rect {
+  width: 100%;
+  height: 300px; 
+  background: #eee;
+  overflow: hidden;
+}
+
+/* CENTER TALL IMAGE (MATCHES TEXT + IMG HEIGHT) */
+.welcome-tall-img {
+  width: 100%;
+  height: calc(300px + 6.3rem + 20px);
+  background: #ddd;
+  overflow: hidden;
+}
+
+/* RIGHT TOP IMAGE (55% OF COLUMN HEIGHT) */
+.welcome-right-img {
+  width: 100%;
+  height: 55%;
+  min-height: 320px;
+  background: #ccc;
+  overflow: hidden;
+}
+
+/* BODY TEXT = 45% */
+.welcome-body-text-wrapper {
+  height: 45%;
+  overflow-y: auto;
+}
+
+/* Image styling */
+.welcome-right-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#welcome img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease; 
+}
+
+#welcome img:hover {
+  transform: scale(1.05);
+}
+
+
+.welcome-grid,
+.left-side,
+.right-side,
+.welcome-body-text-wrapper {
+  height: auto !important; 
+  min-height: 0;          
+}
+
+
+.welcome,
+.welcome-body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+/* =========================================
+ Banner
+   ========================================= */
+
+ .hero-container {
+      margin-top: 0; 
+
+  position: relative;
+  width: 100%;
+  height: 500px; 
+  overflow: hidden;
+margin-bottom: 20px; 
+}
+
+.hero-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: var(--denim-900);
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 3rem; 
+  font-weight: 400; 
+  color: white; 
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1rem; 
+  font-weight: 400; 
+  color: white; 
+  line-height: 1.6;
+}
+
+
+.hero-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); 
+  z-index: 1;
+}
+
+#hero-container {
+  width: 100%;
+  padding: 0 7% !important;   
+  margin-top: -80px !important; 
+  margin-bottom: 80px !important; 
+}
+
+/* =========================================
+  HOW IT BEGAN SECTION
+   ========================================= */
+
+
+#how-it-began .row {
+  display: flex;
+  align-items: stretch; 
+}
+
+
+#how-it-began .col-lg-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* TITLES */
+.hib-title,
+.hib-bottom-title {
+  font-family: serif;
+  font-size: 2rem;
+  line-height: 1.1;
+  margin: 0 0 1rem 0;
+}
+
+/* BODY TEXT */
+.hib-body {
+  font-family: Futura;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+.hib-img-rect {
+  width: 100%;
+  flex-grow: 1;         
+  background: #eee;
+  overflow: hidden;
+}
+
+
+.hib-img-rect img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+#how-it-began img {
+  transition: transform 0.4s ease;
+}
+
+#how-it-began img:hover {
+  transform: scale(1.05);
+}
+
+
+.hib-img-small {
+  flex-grow: 0 !important;
+  height:420px !important;  
+}
+.hib-img-small img {
+  height: 100% !important;
+  object-fit: cover;
+}
+
+/* Column 7–9 image — make it smaller */
+.hib-img-mid {
+  height: 330px !important;  
+  flex-grow: 0 !important;
+}
+
+/* Make the image fit */
+.hib-img-mid img {
+  height: 100% !important;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Move title up (closer to image) */
+.hib-bottom-title {
+  margin-top: 0.3rem !important;
+}
+
+
+/* =========================================
+  COLLECTIONS ACCORDION
+   ========================================= */
+
+/* SECTION */
+#collections {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ACCORDION ITEM */
+.acc-item {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+/* BACKGROUND IMAGE LAYER */
+.acc-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.85);
+  height: 100px;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  z-index: 2; 
+
+}
+
+
+.acc-item {
+  position: relative;
+  overflow: visible; 
+}
+
+/* OUTSIDE drop shadow placed on the parent (acc-item) */
+.acc-item::before {
+  content: "";
+  position: absolute;
+  top: -25px;        
+  left: -10px;       
+  right: -10px;
+  height: 45px;      
+  pointer-events: none;
+  z-index: 1;        
+ 
+  
+}
+
+.acc-item.open .acc-bg {
+  height: 140px; 
+}
+
+/* Header */
+.acc-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem;
+  color: var(--title-color);
+  font-family: Futura, sans-serif;
+  cursor: pointer;
+  z-index: 10;
+ 
+}
+
+/* Body inside expanding image */
+.acc-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2.5rem;
+  color: #191919;
+  font-size: 0.9rem;
+  font-family: Futura, sans-serif;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.acc-item.open .acc-body {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Arrow rotation */
+.acc-header .arrow {
+  transition: 0.3s;
+}
+
+.acc-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.collections .acc-item {
+  position: relative;
+    overflow: visible; 
+}
+
+/* Add light drop shadow on top, except the first item */
+.collections .acc-item:not(:first-child) .acc-bg::before {
+  content: "";
+  position: absolute;
+  top: -10px; 
+  left: 0;
+  width: 100%;
+  height: 10px; 
+  
+  pointer-events: none; 
+  z-index: 1;
+}
+
+
+
+/* =========================================
+  BEHIND THE DENIM SECTION
+   ========================================= */
+/* SECTION MARGINS */
+#behind-denim {
+  margin: 90px 115px 120px 115px;
+}
+
+/* GRID SETUP */
+.btd-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto 400px 0px;
+  gap: 20px;
+}
+
+/* TITLE */
+.btd-title {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  font-family: serif;
+  font-size: 2rem;
+  margin: 0;
+  align-self: end;
+}
+
+/* RECTANGLE BASE STYLE */
+.btd-rect {
+  background: #eaeaea;
+ 
+  overflow: hidden;
+}
+
+/* VIDEO LEFT */
+.btd-video-left {
+  grid-column: 1 / 4;
+  grid-row: 2;
+}
+
+/* TALL IMAGE LEFT */
+.btd-image-left {
+  background: #dcdcdc;
+  grid-column: 4 / 7;
+  grid-row: 1 / 4;
+}
+
+/* VIDEO RIGHT TOP */
+.btd-video-right {
+  grid-column: 7 / 10;
+  grid-row: 1 / 3;
+}
+
+/* TEXT RIGHT BOTTOM */
+.btd-text {
+   grid-column: 7 / 10;
+  grid-row: 3;
+  font-family: futura, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* TALL IMAGE RIGHT */
+.btd-image-right {
+  background: #dcdcdc;
+  grid-column: 10 / 13; /* spans 10, 11, 12 */
+  grid-row: 1 / 4;
+}
+
+.btd-rect img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;  /* smooth zoom */
+}
+
+.btd-rect img:hover {
+  transform: scale(1.1);  /* zoom in 10% */
+}
+
+
+/* ---------- FEATURES STRIP ---------- */
+.features-strip {
+  padding: 40px 60px;
+  background: #fff;
+}
+.features-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.feature-box {
+  flex: 1;
+  border: 1px solid rgba(11, 42, 71, 0.12);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--body-font);
+  font-size: 14px;
+  font-weight: 600;
+  background: #fff;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.feature-box svg {
+  width: 32px;
+  height: 32px;
+  fill: var(--denim-700);
+  color: var(--denim-700);
+}
+.feature-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 42, 71, 0.06);
+}
+/* ---------- NEWSLETTER ---------- */
+.newsletter-section {
+  padding: 40px 60px;
+  text-align: center;
+}
+.newsletter-title {
+  font-family: var(--header-font);
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: var(--denim-900);
+}
+.newsletter-input-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+.newsletter-input {
+  width: 360px;
+  padding: 14px 16px;
+  border: 1px solid rgba(11, 42, 71, 0.12);
+  border-right: none;
+  font-family: var(--body-font);
+  outline: none;
+  box-shadow: 0 8px 24px rgba(11, 42, 71, 0.03);
+  background: #fff;
+}
+.newsletter-btn {
+  padding: 0 20px;
+  background: var(--accent-red);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 10px 30px rgba(211, 47, 47, 0.08);
+  border-radius: 2px;
+}
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+  FOOTER
+   ========================================= */
+.site-footer {
+  background: linear-gradient(180deg, #0b1724 0%, #11151a 100%);
+  padding: 28px 48px;
+  color: rgba(255, 255, 255, 0.92);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-logo {
+  width: 160px;
+  height: auto;
+}
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-logo {
+  width: 160px;
+  height: auto;
+}
+.footer-tagline {
+  font-size: 13px;
+  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* contact boxes */
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #dcdcdc;
+  padding: 10px 16px;
+  min-width: 260px;
+  color: #000;
+  border-radius: 2px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.contact-box svg {
+  width: 18px;
+  height: 18px;
+}
+.contact-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(11, 42, 71, 0.06);
+}
+
+/* copy button */
+.copy-btn {
+  background: #dcdcdc;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.copy-btn.copied {
+  background: var(--accent-red) !important;
+  color: #fff !important;
+}
+
+/* ---------- UNIFIED CTA BUTTON STYLE (Shop Now / Shop the Look / Claim Reward) ---------- */
+.cta-btn,
+.spotted-cta,
+.claim-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px !important;
+  font-weight: 700;
+  font-family: var(--body-font);
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.6px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  transition: transform 0.22s cubic-bezier(0.2, 0.9, 0.2, 1),
+    background 0.18s ease, box-shadow 0.22s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  white-space: nowrap;
+}
+.cta-btn:hover,
+.spotted-cta:hover,
+.claim-btn:hover {
+  background: var(--accent-red);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(211, 47, 47, 0.2);
+  color: #fff;
+}
+.cta-btn:active,
+.spotted-cta:active,
+.claim-btn:active {
+  transform: translateY(-1px);
+}
+.media-portrait .cta-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 26px;
+}
+
+</style>
+
+
+    <link rel="preload" as="image" href="your-imglg2-background.jpg" />
+  </head>
+
+
+
+
+
+  <body>
+
+    <button id="scrollTopBtn" class="scroll-top-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+         stroke="var(--denim-900)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 15L12 9L6 15"></path>
+    </svg>
+</button>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.jpg" alt="B5IVE Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="MenJean.html">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="WomenJean.html">Women</a></li>
+            <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="navCollectionMenu"
+    role="button"
+    aria-expanded="false"
+  >Collection</a>
+
+  <div class="custom-mega" aria-labelledby="navCollectionMenu">
+    <div class="mega-col">
+      <a href="Brave.html">Brave</a>
+      <a href="Fearless.html">Fearless</a>
+      <a href="Innovative.html">Innovative</a>
+      <a href="Vogue.html">Vogue</a>
+      <a href="Exclusive.html">Exclusive</a>
+    </div>
+  </div>
+</li>
+
+            <li class="nav-item"><a class="nav-link" href="Aboutus.html">About us</a></li>
+          </ul>
+        </div>
+        <!-- Icons: inline SVG (outline + filled inside each SVG) -->
+        <div
+          class="nav-icons d-none d-lg-flex"
+          role="navigation"
+          aria-label="utilities"
+        >
+          <!-- Heart -->
+          <a
+            href="Wishlist.html"
+            class="nav-icon"
+            data-key="favorites"
+            aria-label="Favorites"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <path
+                class="outline"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- filled -->
+              <path
+                class="filled"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+
+          <!-- Cart -->
+          <a href="Cart.html" class="nav-icon" data-key="cart" aria-label="Cart">
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 3h2l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path
+                  d="M6 7l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6z"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- User -->
+          <a
+            href="profile.html"
+            class="nav-icon"
+            data-key="account"
+            aria-label="Account"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="3" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5v1H4v-1z" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Search -->
+          <a
+            href="/search"
+            class="nav-icon"
+            data-key="search"
+            aria-label="Search"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="5" />
+                <path d="M21 21l-4.3-4.3" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M11 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+                <path
+                  d="M21 21l-4.3-4.3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+      </div>
+    </nav>
+    
+    <h1 class="page-title">About B5ive</h1>
+
+
+
+
+    <!--  =========================================
+       WELCOME
+     ========================================= */ -->
+
+    <section id="welcome" class="container py-5">
+  <div class="row">
+
+    <!-- LEFT TEXT (COL 1–3) -->
+    <div class="col-lg-3 d-flex flex-column">
+      <h1 class="welcome-title mb-4">
+        Welcome to B5– where denim gets redefined.
+      </h1>
+
+      <!-- LEFT IMAGE RECTANGLE -->
+      <div class="welcome-img-rect mb-4">
+        <img src="images/abtwelc1.avif" alt="" />
+      </div>
+    </div>
+
+    <!-- CENTER TALL IMAGE (COL 4–6) -->
+    <div class="col-lg-3">
+      <div class="welcome-tall-img">
+        <img src="images/abtwelc2.webp" alt="" />
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE IMAGE + TEXT (COL 7–12) -->
+    <div class="col-lg-6 d-flex flex-column">
+
+      <!-- RIGHT TOP IMAGE (55% HEIGHT) -->
+      <div class="welcome-right-img mb-4">
+        <img src="images/abtwelc3.jpg" alt="" />
+      </div>
+
+      <!-- BODY TEXT BELOW IMAGE -->
+      <p class="welcome-body-text">
+        We're all about premium, baggy-style, unisex jeans that bring the perfect
+        blend of comfort, style, and top-notch quality — crafted with attention
+        to every tiny detail. Led by visionary designer Kapil Jain, B5 is built
+        for the fashion-forward, the expressive, and the ones who wear their
+        confidence like a signature.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!--  =========================================
+       Banner
+     ========================================= */ -->
+
+<div class="hero-container">
+  <img src="images/abtban1.png" alt="Hero Image">
+  <div class="hero-text">
+    <h1>Craftsmanship is at the heart of everything that we do.</h1>
+    <p>
+      We take pride in using the finest denim fabrics and innovative techniques to ensure every pair of B5ive jeans is a masterpiece. 
+      Our attention to detail, from the stitching to the finishing touches, sets us apart.
+    </p>
+  </div>
+</div>
+
+<section id="how-it-began" class="container py-5">
+  <div class="row">
+
+
+    <!--  =========================================
+       HOW IIT BEGAN
+     ========================================= */ -->
+    <!-- COL 1–3 : TITLE + BODY -->
+    <div class="col-lg-3 d-flex flex-column">
+      <h2 class="hib-title mb-4">How It Began</h2>
+
+      <p class="hib-body" style="font-family: Futura PT, system-ui, Arial, sans-serif;">
+      B5ive Denim came to life in July 2023, when Kapil Jain decided it was time to bring his own perspective to the
+       world of denim. For more than a decade, through Yellow Clothing Company (est. 2010), he had been manufacturing 
+       jeans for various labels - observing trends, understanding what lasts, and studying what people actually reach for 
+       every single day. Over the years, he gained a deep insight into fabrics, fits, and functionality, and realised that 
+       true denim isn’t just about style; it’s about durability, comfort, and a personality of its own. With this experience 
+       and vision, B5ive was born.
+      </p>
+    </div>
+
+    <!-- COL 4–6 : IMAGE RECTANGLE -->
+    <div class="col-lg-3">
+  <div class="hib-img-rect hib-img-small">
+    <img src="images/abthow1b.jpg" alt="">
+  </div>
+</div>
+
+    <!-- COL 7–9 : IMAGE + TITLE BELOW -->
+   <div class="col-lg-3 d-flex flex-column">
+
+  <!-- SMALLER IMAGE (stays inside 7–9) -->
+  <div class="hib-img-rect hib-img-mid mb-3">
+    <img src="images/abthow2b.jpg" alt="">
+  </div>
+
+  <!-- TITLE UNDER THE IMAGE -->
+  <h2 class="hib-bottom-title">But something was missing:</h2>
+
+</div>
+
+    <!-- COL 10–12 : IMAGE + BODY BELOW -->
+    <div class="col-lg-3 d-flex flex-column">
+
+      <div class="hib-img-rect flex-fill mb-4">
+        <img src="images/abthow3b.jpg" alt="">
+      </div>
+
+      <p class="hib-body" style="font-family: Futura PT, system-ui, Arial, sans-serif;">
+        A space where denim could be comfortable, baggy, unisex, and still have presence.
+        So B5ive was built from that gap, not to make louder clothes, but to make denim 
+        that speaks through its details. A brand for people who express themselves by how 
+        they show up.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+  <!--  =========================================
+       Collection
+     ========================================= */ -->
+
+
+<section id="collections" class="collections">
+
+    <h2 style="font-family: 'Times New Roman', serif; 
+           font-size: 2rem; 
+           text-align: left; 
+           margin-bottom: 30px;
+           margin-left: 120px;">
+  Our Collections
+</h2>
+
+  <!-- 1 — BE BRAVE -->
+  <div class="acc-item">
+  <div class="acc-bg" style="background-image:url('images/CollBrave1.jpg'); 
+                             background-size: cover; 
+                             background-position: center;
+                             box-shadow: 0 -5px 15px rgba(0,0,0,0.3);">
+    
+    <div class="acc-header" style="--title-color:#0B0B0B;">
+      <span style="padding: 0 75px;">Be Brave</span>
+      <i class="arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </i>
+    </div>
+    
+    <div class="acc-body" style="padding: 0px 115px 20px 115px;">
+      Step up your style game with our Be Brave Collection! Celebrate confidence and express your individuality with bold, eye-catching denim pieces designed to stand out. With striking details and fearless silhouettes, this collection empowers you to make a statement wherever you go. Be bold, be unique—be brave.
+    </div>
+    
+  </div>
+</div>
+
+
+  <!-- 2 — FEARLESS -->
+  <div class="acc-item">
+  <div class="acc-bg" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/collFear1.jpg'); 
+                             background-size: cover; 
+                             background-position: center;
+                             background-size: cover; 
+                             background-position: center;
+                             box-shadow: 0 -5px 15px rgba(0,0,0,0.4);">
+    
+    <div class="acc-header" style="--title-color:#ffffff;">
+      <span style="padding: 0 75px;">Be Fearless</span>
+      <i class="arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </i>
+    </div>
+    
+    <div class="acc-body" style="padding: 0px 115px 20px 115px; color: white;">
+      Step up your style game with our Be Fearless Collection! Celebrate confidence and express your individuality with bold, eye-catching denim pieces designed to stand out. With striking details and fearless silhouettes, this collection empowers you to make a statement wherever you go. Be bold, be unique—be fearless.
+    </div>
+
+  </div> <!-- close acc-bg here -->
+</div>
+
+
+  <!-- 3 — BE INNOVATIVE -->
+  <div class="acc-item">
+  <div class="acc-bg" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/CollIInnov1.jpg'); 
+                             background-size: cover; 
+                             background-position: center;
+                             background-size: cover; 
+                             background-position: center;
+                             box-shadow: 0 -5px 15px rgba(0,0,0,0.5);">
+    
+    <div class="acc-header" style="--title-color:#ffffff;">
+      <span style="padding: 0 75px;">Be Innovative</span>
+      <i class="arrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </i>
+    </div>
+    
+    <div class="acc-body" style="padding: 0px 115px 20px 115px; color: white;">
+      Step up your style game with our Be Innovative Collection! Celebrate confidence and express your individuality with bold, eye-catching denim pieces designed to stand out. With striking details and forward-thinking designs, this collection empowers you to make a statement wherever you go. Be bold, be unique—be innovative.
+    </div>
+    
+  </div> <!-- close acc-bg -->
+</div>
+
+
+  <!-- 4 — BE VOGUE -->
+  <div class="acc-item">
+    <div class="acc-bg" style="background-image:url('images/collvogue1.jpg');
+    background-size: cover; 
+                             background-position: center;
+                             box-shadow: 0 -5px 15px rgba(0,0,0,0.6);">
+
+      <div class="acc-header" style="--title-color:#ffffff;">
+        <span style="padding: 0 75px;">Be Vogue</span>
+        <i class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </i>
+      </div>
+      <div class="acc-body" style="padding: 0px 115px 20px 115px; color: white;">
+        Introducing Vogue Denim! Our jeans are truly vogue-tastic, giving you that trendsetting edge every time you slip into a pair. Turn heads, set the tone, and elevate your style with denim designed to keep you effortlessly chic.
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 — BE EXCLUSIVE -->
+  <div class="acc-item">
+    <div class="acc-bg" style="background-image:url('images/collexclu1.jpg');
+    background-size: cover; 
+                             background-position: center;
+                             box-shadow: 0 -5px 15px rgba(0,0,0,0.3);">
+                             
+      <div class="acc-header" style="--title-color:#ffffff;">
+        <span style="padding: 0 75px;">Be Exclusive</span>
+        <i class="arrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </i>
+      </div>
+      <div class="acc-body" style="padding: 0px 115px 20px 115px; color: white;">
+        Embrace the allure of our Be Exclusive denim! Crafted for those who love to stand apart, each piece delivers one-of-a-kind style that highlights your individuality. With unique details and distinctive design, this collection ensures you’ll rock a look that is unmistakably and exclusively you.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+ <!--  =========================================
+       Behnd the Denim
+     ========================================= */ -->
+
+<section id="behind-denim">
+
+  <div class="btd-grid">
+
+    <!-- TITLE -->
+    <h2 class="btd-title">Behind The Denim</h2>
+<!-- IMAGE LEFT -->
+<div class="btd-rect btd-video-left" 
+     style="width:100%; height:100%; height: 420px; overflow:hidden;">
+
+  <img src="images/BTD1b.jpg" 
+       style="width:100%; height:100%; object-fit:cover; display:block;">
+</div>
+
+
+    <!-- IMAGE TALL LEFT -->
+    <div class="btd-rect btd-image-left">
+   <img src="images/BTD2.jpg" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <div class="btd-rect btd-video-right" style="overflow:hidden; height:370px;">
+  <img src="images/BTD3.jpg"
+       style="width:100%; height:100%; object-fit:cover; display:block;">
+</div>
+
+    <!-- BODY TEXT RIGHT BOTTOM -->
+    <p class="btd-text" style="margin-top: -90px;">
+      The fabric rolls, the cutting tables, the stitching lines,
+      the wash tests, the small tweaks made daily to keep every pair
+      feeling just right.
+    </p>
+
+    <!-- IMAGE TALL RIGHT -->
+    <div class="btd-rect btd-image-right">
+    <img src="images/BTD4.jpg" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURES STRIP (with solid black SVG icons) -->
+    <section class="features-strip">
+      <div class="features-wrapper">
+        <!-- Free Shipping -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M3 4h13v4h4l3 4v6h-2a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H1V6a2 2 0 0 1 2-2zm16 6h-3V8h1.5l2 2zM7 18a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+            />
+          </svg>
+          <span>Free Shipping</span>
+        </div>
+
+        <!-- Easy Returns (BOX ICON) -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M12 2 3 6v12l9 4 9-4V6l-9-4zm7 6-7 3-7-3 7-3 7 3zm-7 5 7-3v8l-7 3-7-3v-8l7 3z"
+            />
+          </svg>
+          <span>Easy Returns</span>
+        </div>
+
+        <!-- 24/7 Support -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M12 2a9 9 0 0 0-9 9v4a3 3 0 0 0 3 3h2v-8H6a6 6 0 0 1 12 0h-2v8h2a3 3 0 0 0 3-3v-4a9 9 0 0 0-9-9zm-1 18h2v2h-2z"
+            />
+          </svg>
+          <span>24/7 Support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER (single instance) -->
+    <section class="newsletter-section">
+      <h2 class="newsletter-title">Sign Up For Our Newsletter</h2>
+
+      <div class="newsletter-input-wrap">
+        <input
+          type="email"
+          placeholder="Your Email Address"
+          class="newsletter-input"
+        />
+        <button class="newsletter-btn">→</button>
+      </div>
+    </section>
+
+    
+    
+
+
+
+
+<!-- FOOTER -->
+<span> <!-- Spacer for footer -->
+     <footer class="site-footer">
+      <div class="footer-container">
+        <!-- LEFT SIDE -->
+        <div class="footer-left">
+          <img src="images/logo.jpg" class="footer-logo" alt="B5IVE Logo" />
+          <p class="footer-tagline">© 2024 B5IVE. Made With Love In India</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="footer-right">
+          <!-- PHONE -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3A19.7 19.7 0 0 1 2.7 3.3C2.7 2.6 3.3 2 4 2h3.1c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2l-2.1 2.2z"
+                />
+              </svg>
+              <span>+91 7045451008</span>
+            </div>
+
+            <button class="copy-btn" data-copy="+91 7045451008">📋</button>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M2 4h20v16H2V4zm10 7 8-5H4l8 5zm-8 7h16V9l-8 5-8-5v9z"
+                />
+              </svg>
+              <span>Bfivenew@Gmail.Com</span>
+            </div>
+
+            <button class="copy-btn" data-copy="Bfivenew@Gmail.Com">📋</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+</span>
+
+    <!-- COPY BUTTON SCRIPT -->
+    <script>
+      const buttons = document.querySelectorAll(".copy-btn");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text = btn.getAttribute("data-copy");
+
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✔"; // change icon
+            btn.classList.add("copied"); // turn green
+
+            setTimeout(() => {
+              btn.textContent = "📋";
+              btn.classList.remove("copied");
+            }, 1500);
+          });
+        });
+      });
+    </script>
+   
+        <!-- ABOUT US ACCORDIAN  -->
+    <script>
+  const items = document.querySelectorAll(".acc-item");
+
+  items.forEach((item) => {
+    const header = item.querySelector(".acc-header");
+
+    header.addEventListener("click", () => {
+      const isOpen = item.classList.contains("open");
+
+      items.forEach(i => i.classList.remove("open"));
+
+      if (!isOpen) item.classList.add("open");
+    });
+  });
+</script>
+
+
+<script>
+    
+const scrollBtn = document.getElementById('scrollTopBtn');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        scrollBtn.classList.add('show');
+    } else {
+        scrollBtn.classList.remove('show');
+    }
+});
+
+scrollBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B5IVE - Size Guide</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <style>
+      /* Import your fonts here (e.g., using Adobe Fonts or local @font-face) */
+      @font-face {
+        font-family: "Futura PT";
+        src: url("path/to/futura-pt-book.woff2") format("woff2"),
+          url("path/to/futura-pt-book.woff") format("woff");
+        font-weight: 400; /* Corresponds to 'Book' weight */
+        font-style: normal;
+        font-display: swap; /* Recommended for better performance */
+      }
+      @font-face {
+        font-family: "Miller Banner";
+        src: url("path/to/miller-banner-extra-compressed.woff2") format("woff2"),
+          url("path/to/miller-banner-extra-compressed.woff") format("woff");
+        font-weight: normal; /* Or specify the correct weight if multiple are available */
+        font-style: normal;
+        font-display: swap; /* Recommended for performance */
+      }
+
+      :root {
+        /* Replace the font stack below with 'Miller Banner Extra Compressed' */
+        --header-font: "Miller Banner", "Oswald", sans-serif;
+
+        /* Replace the font stack below with 'Futura PT' */
+        --body-font: "Futura PT", "Helvetica Neue", Arial, sans-serif;
+
+        --primary-black: #000000;
+        --box-grey: #e0e0e0; /* Color for the measurement boxes */
+        --table-header-grey: #e6e6e6;
+      }
+
+      body {
+        font-family: var(--body-font);
+        color: var(--primary-black);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: var(--header-font);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* =========================================
+           2. NAVBAR STYLING
+           ========================================= */
+      .navbar-brand svg {
+        height: 40px;
+        width: auto;
+      }
+
+      .navbar-nav .nav-link {
+        font-family: var(--header-font);
+        font-size: 1.1rem;
+        padding: 8px 16px !important;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        color: black;
+      }
+
+      /* --- ACTION REQUIRED: DENIM TEXTURE --- */
+      .denim-active-bg {
+        /* Replace the URL below with your denim texture image path */
+        background: url("Product%20Img/denim%20texture.jpg") no-repeat center
+          center / cover;
+        /* If no image, fallback to denim-like color */
+        background-color: #1560bd;
+        color: white !important;
+        border-radius: 4px;
+        transition: background 0.3s;
+      }
+
+      .nav-icons .bi {
+        font-size: 1.3rem;
+        margin-left: 15px;
+        cursor: pointer;
+        color: black;
+      }
+
+      /* =========================================
+           3. HERO SECTION (Side Images + Text)
+           ========================================= */
+      .hero-section {
+        padding: 40px 0;
+        overflow: hidden;
+      }
+
+      .hero-text-container h1 {
+        font-size: 5rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+      }
+
+      /* Placeholder style for hero images */
+      .hero-img-placeholder {
+        width: 100%;
+        height: 400px;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #888;
+        border: 1px dashed #ccc;
+      }
+
+      /* If using actual <img> tags, ensure they cover the area */
+      .hero-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      /* =========================================
+           4. MEASUREMENT BOXES
+           ========================================= */
+      .measure-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
+      .measure-box {
+        background-color: var(--box-grey);
+        padding: 30px 20px;
+        text-align: center;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .measure-box h5 {
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.2rem;
+        font-family: var(
+          --body-font
+        ); /* Using body font for bold headers inside box */
+        text-transform: uppercase;
+      }
+
+      .measure-box p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      /* =========================================
+           5. SIZE TABLE
+           ========================================= */
+      .table-container {
+        margin-top: 40px;
+        margin-bottom: 60px;
+      }
+
+      .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        border: 1px solid #000;
+      }
+
+      .custom-table th {
+        background-color: var(--table-header-grey);
+        padding: 15px;
+        border: 1px solid #000;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: var(--body-font);
+      }
+
+      .custom-table td {
+        padding: 12px;
+        border: 1px solid #000;
+        font-size: 1rem;
+      }
+
+      /* =========================================
+           6. FOOTER & COMMON ELEMENTS
+           ========================================= */
+      /* Features Banner */
+      .feature-box {
+        border: 2px solid black;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .feature-box i {
+        font-size: 2.5rem;
+        margin-right: 20px;
+      }
+      .feature-box span {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Newsletter */
+      .newsletter-input {
+        border: 2px solid black;
+        border-right: none;
+        padding: 15px;
+      }
+      .newsletter-btn {
+        border: 2px solid black;
+        background: white;
+        padding: 0 20px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1a1a1a;
+        color: white;
+        padding-top: 80px;
+        padding-bottom: 30px;
+      }
+      .copy-box-input {
+        background-color: #b3b3b3;
+        border: none;
+        padding-left: 50px;
+        font-weight: 500;
+      }
+      .copy-box-icon-left {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: black;
+        z-index: 5;
+      }
+      .btn-copy {
+        background-color: #b3b3b3;
+        border-left: 2px solid #1a1a1a;
+      }
+      .social-icons a {
+        color: white;
+        margin-left: 20px;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#">
+          <!-- LOGO Placeholder -->
+          <img
+            src="Product%20Img/B5ive%20logo.png"
+            alt="B5IVE logo"
+            height="40"
+            style="display: inline-block; vertical-align: middle"
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav" id="mainNav">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Women</a></li>
+            <li class="nav-item">
+              <a class="nav-link active denim-active-bg" href="#">Collection</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-icons d-flex align-items-center">
+          <i class="bi bi-heart"></i>
+          <i class="bi bi-cart3"></i>
+          <i class="bi bi-person"></i>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section">
+      <div class="container-fluid px-0">
+        <div class="row align-items-center g-0">
+          <div class="col-md-3 d-none d-md-block">
+            <div class="hero-img-placeholder">
+              <img
+                src="Product%20Img/size%20guide%20image.jpg"
+                alt="Left Model"
+                class="hero-img"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6 text-center hero-text-container">
+            <h1>Find Your<br />Perfect Fit</h1>
+          </div>
+
+          <div class="col-md-3 d-none d-md-block">
+            <div class="hero-img-placeholder">
+              <img
+                src="Product%20Img/size%20guide%20image.jpg"
+                alt="Right Model"
+                class="hero-img"
+              />
+              <img
+                src="C:\Users\panch\OneDrive\Documents\TY\Code to Concept\B5ive Website\Product Img\size guide image.jpg"
+                alt="Right Model"
+                class="hero-img"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="measure-title">HOW TO MEASURE</h2>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-3">
+            <div class="measure-box">
+              <h5>WAIST</h5>
+              <p>
+                Using a measuring tape, measure the smallest part of your waist.
+                Not too snug, not too loose.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="measure-box">
+              <h5>HIP</h5>
+              <p>
+                Measure around the fullest part of your hips. Make sure to keep
+                the tape measure as horizontal as you can.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="measure-box">
+              <h5>THIGH</h5>
+              <p>Measure around the fullest part of your thigh.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="measure-box">
+              <h5>LEG OPENING</h5>
+              <p>Measure the leg opening at the bottom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-container">
+      <div class="container">
+        <div class="table-responsive">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>SIZE</th>
+                <th>WAIST</th>
+                <th>HIP</th>
+                <th>THIGH</th>
+                <th>LEG OPENING</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>25</td>
+                <td>25</td>
+                <td>25</td>
+                <td>25</td>
+                <td>25</td>
+              </tr>
+              <tr>
+                <td>26</td>
+                <td>26</td>
+                <td>26</td>
+                <td>26</td>
+                <td>26</td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>27</td>
+                <td>27</td>
+                <td>27</td>
+                <td>27</td>
+              </tr>
+              <tr>
+                <td>28</td>
+                <td>28</td>
+                <td>28</td>
+                <td>28</td>
+                <td>28</td>
+              </tr>
+              <tr>
+                <td>29</td>
+                <td>29</td>
+                <td>29</td>
+                <td>29</td>
+                <td>29</td>
+              </tr>
+              <tr>
+                <td>30</td>
+                <td>30</td>
+                <td>30</td>
+                <td>30</td>
+                <td>30</td>
+              </tr>
+              <tr>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+                <td>31</td>
+              </tr>
+              <tr>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+                <td>32</td>
+              </tr>
+              <tr>
+                <td>33</td>
+                <td>33</td>
+                <td>33</td>
+                <td>33</td>
+                <td>33</td>
+              </tr>
+              <tr>
+                <td>34</td>
+                <td>34</td>
+                <td>34</td>
+                <td>34</td>
+                <td>34</td>
+              </tr>
+              <tr>
+                <td>35</td>
+                <td>35</td>
+                <td>35</td>
+                <td>35</td>
+                <td>35</td>
+              </tr>
+              <tr>
+                <td>36</td>
+                <td>36</td>
+                <td>36</td>
+                <td>36</td>
+                <td>36</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white border-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="bi bi-truck"></i>
+              <span>Free Shipping</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="bi bi-box-seam"></i>
+              <span>Easy Returns</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <i class="bi bi-headset"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5 bg-white text-center mb-5">
+      <div class="container">
+        <h2 class="mb-4 display-4">Sign Up For Our Newsletter</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="input-group mb-3">
+              <input
+                type="email"
+                class="form-control newsletter-input"
+                placeholder="Your Email Address"
+              />
+              <button class="btn newsletter-btn" type="button">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container mt-4">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="footer-logo">
+              <a class="navbar-brand" href="#">
+                <!-- LOGO Placeholder -->
+                <img
+                  src="Product%20Img/B5ive%20logo.png"
+                  alt="B5IVE logo"
+                  height="40"
+                  style="display: inline-block; vertical-align: middle"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group mb-3 position-relative">
+              <i class="bi bi-telephone-fill copy-box-icon-left"></i>
+              <input
+                type="text"
+                class="form-control copy-box-input"
+                value="+91 7045451008"
+                readonly
+              />
+              <button class="btn btn-copy"><i class="bi bi-copy"></i></button>
+            </div>
+            <div class="input-group position-relative">
+              <i class="bi bi-envelope-fill copy-box-icon-left"></i>
+              <input
+                type="text"
+                class="form-control copy-box-input"
+                value="Bfivenew@Gmail.Com"
+                readonly
+              />
+              <button class="btn btn-copy"><i class="bi bi-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row mt-5 pt-4 d-flex align-items-center justify-content-between border-top border-secondary"
+        >
+          <div class="col-md-6">
+            <p class="mb-0 small text-white-50">
+              @ 2024 B5IVE. Made With Love In India
+            </p>
+          </div>
+          <div class="col-md-6 text-end social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll("#mainNav .nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            navLinks.forEach((nav) => {
+              nav.classList.remove("active");
+              nav.classList.remove("denim-active-bg");
+            });
+            this.classList.add("active");
+            this.classList.add("denim-active-bg");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

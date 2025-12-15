@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>B5IVE — Premium Denim</title>
+
+    <!-- Bootstrap CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- local stylesheet -->
+    <link rel="stylesheet" href="css/home-style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo.jpg" alt="B5IVE Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="MenJean.html">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="WomenJean.html">Women</a></li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navCollectionMenu"
+                role="button"
+                aria-expanded="false"
+              >Collection</a>
+
+              <div class="custom-mega" aria-labelledby="navCollectionMenu">
+                <div class="mega-col">
+                  <a href="Brave.html">Brave</a>
+                  <a href="Fearless.html">Fearless</a>
+                  <a href="Innovative.html">Innovative</a>
+                  <a href="Vogue.html">Vogue</a>
+                  <a href="Exclusive.html">Exclusive</a>
+                </div>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="Aboutus.html">About us</a></li>
+          </ul>
+        </div>
+        <!-- Icons: inline SVG (outline + filled inside each SVG) -->
+        <div
+          class="nav-icons d-none d-lg-flex"
+          role="navigation"
+          aria-label="utilities"
+        >
+          <!-- Heart -->
+          <a
+            href="Wishlist.html"
+            class="nav-icon"
+            data-key="favorites"
+            aria-label="Favorites"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <path
+                class="outline"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- filled -->
+              <path
+                class="filled"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+
+          <!-- Cart -->
+          <a href="Cart.html" class="nav-icon" data-key="cart" aria-label="Cart">
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 3h2l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path
+                  d="M6 7l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6z"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- User -->
+          <a
+            href="profile.html"
+            class="nav-icon"
+            data-key="account"
+            aria-label="Account"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="3" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5v1H4v-1z" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Search -->
+          <a
+            href="#"
+            class="nav-icon"
+            data-key="search"
+            aria-label="Search"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="5" />
+                <path d="M21 21l-4.3-4.3" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M11 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+                <path
+                  d="M21 21l-4.3-4.3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- SALE TICKER -->
+    <div class="sale-ticker">
+      <div class="sale-inner">
+        <div class="sale-track" id="saleTrack" tabindex="0">
+          <span class="sale-text" id="saleText">
+            Flat 30% off on all new denim arrivals — Limited time only — Shop
+            Now —
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="images/Home Banner.png" class="hero-img" alt="Hero Banner" />
+      <div class="hero-inner">
+        <h1>Denim that speaks your language</h1>
+        <div class="hero-sub">crafted fits • honest washes • built to last</div>
+        <div class="hero-cta-group">
+          <a href="Brave.html" class="cta-btn">Shop Collection</a>
+          <a href="new-arrivals.html" class="cta-btn">Shop Latest Fits</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="featured-section py-5">
+      <div class="container-fluid featured-wrapper">
+        <div class="featured-row">
+          <!-- LEFT IMAGE (50%) -->
+          <div class="featured-left">
+            <img
+              src="images/istockphoto-1307378301-612x612.jpg"
+              class="featured-img-big"
+              alt="Featured large"
+            />
+          </div>
+
+          <!-- RIGHT TEXT + SMALL IMAGE (50%) -->
+          <div class="featured-right">
+            <h2 class="featured-title">Featured Collection</h2>
+
+            <p class="featured-text">
+              A curation made for those who choose to be FEARLESS. Crafted with
+              innovative denim techniques and exclusive washes, each piece
+              reflects a brave, vogue-first attitude, built for the ones who
+              stand out effortlessly.
+            </p>
+
+            <img
+              src="images/istockphoto-1307378301-612x612 (1).jpg"
+              alt="Featured small"
+              class="featured-img-small"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW IN + PLAY & WIN -->
+    <section class="newin-section py-5">
+      <div class="container-fluid newin-wrapper">
+        <div class="newin-row">
+          <!-- NEW IN LEFT (50%) -->
+          <div class="newin-left">
+            <h2 class="featured-title">New In</h2>
+            <p class="featured-text">
+              Fresh silhouettes inspired by fearless expression. Designed for
+              the brave, styled for the vogue-driven, and finished with
+              innovative textures you won't find anywhere else.
+            </p>
+
+            <!-- portrait image with CTA -->
+            <a
+              href="new-arrivals.html"
+              class="media-portrait"
+              aria-label="Shop New In"
+            >
+              <img src="images/B5IVE02091.jpg" class="newin-img" alt="New In" />
+
+              <span class="cta-btn">Shop New Arrivals</span>
+            </a>
+          </div>
+
+          <!-- PLAY & WIN RIGHT (50%) -->
+          <div class="newin-right">
+            <div class="playwin-box">
+              <h3 class="playwin-title text-center">Play and Win!</h3>
+
+              <!-- SCRATCH CARD AREA -->
+              <div class="scratch-card-container" aria-hidden="false">
+                <!-- hidden image (use exact filename with space encoded) -->
+                <img
+                  id="hiddenImage"
+                  class="scratch-hidden-img"
+                  src="images/denim jacket.jpg"
+                  alt="Denim Jacket"
+                  onerror="this.alt='(missing file: denim jacket.jpg)';"
+                />
+
+                <!-- reward text overlays the image -->
+                <div
+                  id="scratchReward"
+                  class="scratch-reward"
+                  aria-hidden="true"
+                >
+                  🎉 You won ₹150 OFF! 🎉
+                  <br /><br />
+                  <button
+                    id="claimRewardBtn"
+                    class="claim-btn"
+                    style="display: none"
+                  >
+                    Claim Reward & Continue Shopping
+                  </button>
+                </div>
+
+                <!-- the scratch canvas (on top) -->
+                <canvas
+                  id="scratchLayer"
+                  aria-label="Scratch to reveal"
+                ></canvas>
+              </div>
+
+              <p class="featured-text text-center" style="margin-top: 12px">
+                Scratch to reveal your denim reward.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPOTTED WEARING B5IVE SECTION -->
+    <section class="spotted-section py-5">
+      <div class="container-fluid spotted-wrapper">
+        <div class="spotted-row">
+          <!-- LEFT -->
+          <div class="spotted-left">
+            <img src="images/B5IVE03316.jpg" alt="" class="spotted-img-small" />
+
+            <div class="spotted-content">
+              <h2 class="spotted-title">Spotted Wearing B5IVE</h2>
+
+              <p class="spotted-text">
+                Brave, fearless, exclusive, vogue-first energy spotted in the
+                wild where innovative B5IVE denim becomes part of real style,
+                real confidence, real moments.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT -->
+          <div class="spotted-right">
+            <img
+              src="images/lifestyle_shot_3_city_street_2.webp"
+              alt=""
+              class="spotted-img-big"
+            />
+
+            <a href="Spotted.html" class="spotted-cta">Shop the Look</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- B5ive Editorial -->
+    <section class="editorial-section py-5">
+      <div class="container-fluid editorial-wrapper">
+        <h3 class="editorial-head">B5ive Editorial</h3>
+
+        <!-- GRID: images on first row, text spans both columns on second row -->
+        <div class="editorial-grid">
+          <!-- image left -->
+          <div class="editorial-item">
+            <img src="images/mj14.jpg" alt="Editorial 1" class="editorial-img" />
+          </div>
+
+          <!-- image right -->
+          <div class="editorial-item">
+            <img src="images/mj1.png" alt="Editorial 2" class="editorial-img" />
+          </div>
+
+          <!-- editorial text row (spans both columns) -->
+          <div class="editorial-body">
+            <p class="editorial-text">
+              B5IVE captures the fearless spirit of today's culture—bold
+              silhouettes, honest textures, and stories shaped by real people.
+              Every look is an expression of bravery, styled with innovation and
+              crafted for those who choose to stand apart.
+            </p>
+
+            <div class="editorial-readmore-wrap">
+              <a href="Aboutus.html" class="editorial-readmore"
+                >Read More &rarr;</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES STRIP (with solid black SVG icons) -->
+    <section class="features-strip">
+      <div class="features-wrapper">
+        <!-- Free Shipping -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M3 4h13v4h4l3 4v6h-2a3 3 0 1 1-6 0H9a3 3 0 1 1-6 0H1V6a2 2 0 0 1 2-2zm16 6h-3V8h1.5l2 2zM7 18a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+            />
+          </svg>
+          <span>Free Shipping</span>
+        </div>
+
+        <!-- Easy Returns (BOX ICON) -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M12 2 3 6v12l9 4 9-4V6l-9-4zm7 6-7 3-7-3 7-3 7 3zm-7 5 7-3v8l-7 3-7-3v-8l7 3z"
+            />
+          </svg>
+          <span>Easy Returns</span>
+        </div>
+
+        <!-- 24/7 Support -->
+        <div class="feature-box">
+          <svg viewBox="0 0 24 24" fill="black">
+            <path
+              d="M12 2a9 9 0 0 0-9 9v4a3 3 0 0 0 3 3h2v-8H6a6 6 0 0 1 12 0h-2v8h2a3 3 0 0 0 3-3v-4a9 9 0 0 0-9-9zm-1 18h2v2h-2z"
+            />
+          </svg>
+          <span>24/7 Support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER (single instance) -->
+    <section class="newsletter-section">
+      <h2 class="newsletter-title">Sign Up For Our Newsletter</h2>
+
+      <div class="newsletter-input-wrap">
+        <input
+          type="email"
+          placeholder="Your Email Address"
+          class="newsletter-input"
+        />
+        <button class="newsletter-btn">→</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- LEFT SIDE -->
+        <div class="footer-left">
+          <img src="images/logo.jpg" class="footer-logo" alt="B5IVE Logo" />
+          <p class="footer-tagline">© 2024 B5IVE. Made With Love In India</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="footer-right">
+          <!-- PHONE -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3A19.7 19.7 0 0 1 2.7 3.3C2.7 2.6 3.3 2 4 2h3.1c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2l-2.1 2.2z"
+                />
+              </svg>
+              <span>+91 7045451008</span>
+            </div>
+
+            <button class="copy-btn" data-copy="+91 7045451008">📋</button>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M2 4h20v16H2V4zm10 7 8-5H4l8 5zm-8 7h16V9l-8 5-8-5v9z"
+                />
+              </svg>
+              <span>Bfivenew@Gmail.Com</span>
+            </div>
+
+            <button class="copy-btn" data-copy="Bfivenew@Gmail.Com">📋</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- COPY BUTTON SCRIPT -->
+    <script>
+      const buttons = document.querySelectorAll(".copy-btn");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text = btn.getAttribute("data-copy");
+
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✔"; // change icon
+            btn.classList.add("copied"); // turn green
+
+            setTimeout(() => {
+              btn.textContent = "📋";
+              btn.classList.remove("copied");
+            }, 1500);
+          });
+        });
+      });
+    </script>
+
+    <!-- Bootstrap bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/scripts.js"></script>
+    <!-- Back to Top Button (after footer) -->
+    <button id="backToTop" class="back-to-top">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+  </body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotted</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- global home styles (unchanged) -->
+    <link rel="stylesheet" href="css/home-style.css" />
+    <!-- page-specific styles -->
+    <link rel="stylesheet" href="css/spotted-style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.jpg" alt="B5IVE Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="MenJean.html">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="WomenJean.html">Women</a></li>
+            <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="navCollectionMenu"
+    role="button"
+    aria-expanded="false"
+  >Collection</a>
+
+  <div class="custom-mega" aria-labelledby="navCollectionMenu">
+    <div class="mega-col">
+      <a href="Brave.html">Brave</a>
+      <a href="Fearless.html">Fearless</a>
+      <a href="Innovative.html">Innovative</a>
+      <a href="Vogue.html">Vogue</a>
+      <a href="Exclusive.html">Exclusive</a>
+    </div>
+  </div>
+</li>
+
+            <li class="nav-item"><a class="nav-link" href="Aboutus.html">About us</a></li>
+          </ul>
+        </div>
+        <!-- Icons: inline SVG (outline + filled inside each SVG) -->
+        <div
+          class="nav-icons d-none d-lg-flex"
+          role="navigation"
+          aria-label="utilities"
+        >
+          <!-- Heart -->
+          <a href="Wishlist.html" class="nav-icon" data-key="favorites" aria-label="Favorites">
+  <svg
+    viewBox="0 0 24 24"
+    width="22"
+    height="22"
+    aria-hidden="true"
+    role="img"
+  >
+    <!-- outline -->
+    <path
+      class="outline"
+      d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <!-- filled -->
+    <path
+      class="filled"
+      d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+      fill="currentColor"
+      stroke="none"
+    />
+  </svg>
+</a>
+
+
+          <!-- Cart -->
+          <a href="Cart.html" class="nav-icon" data-key="cart" aria-label="Cart">
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 3h2l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path
+                  d="M6 7l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6z"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- User -->
+          <a
+            href="profile.html"
+            class="nav-icon"
+            data-key="account"
+            aria-label="Account"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="3" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5v1H4v-1z" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Search -->
+          <a
+            href="/search"
+            class="nav-icon"
+            data-key="search"
+            aria-label="Search"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="5" />
+                <path d="M21 21l-4.3-4.3" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M11 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+                <path
+                  d="M21 21l-4.3-4.3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+      </div>
+    </nav>
+
+    <!-- MAIN PRODUCT LAYOUT -->
+    <main class="product-single">
+      <div class="product-inner">
+        <!-- LEFT SIDE: MAIN IMAGE + THUMBNAILS -->
+        <div class="product-media-column">
+          <!-- Main Image -->
+          <div class="product-media-wrap">
+            <img
+              class="product-media main-img"
+              src="images/lifestyle_shot_3_city_street_2.webp"
+              alt="Product"
+            />
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="product-thumbs">
+            <img src="images/denim jacket.jpg" class="thumb-img" alt="Thumbnail 1" />
+            <img src="images/B5IVE03298.jpg" class="thumb-img" alt="Thumbnail 2" />
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="product-info">
+          <h1 class="product-title">Icey Blue Men's Baggy Fit</h1>
+
+          <div class="product-price">Rs. 1500</div>
+
+          <!-- size + qty -->
+          <div class="product-controls">
+            <label class="control-label">
+              Size
+              <select class="control-select" aria-label="Select size">
+                <option>26</option>
+                <option>28</option>
+                <option>30</option>
+                <option>32</option>
+                <option>34</option>
+                <option>36</option>
+                <option>38</option>
+              </select>
+            </label>
+
+            <label class="control-label qty-label">
+              Qty
+              <input type="number" class="control-qty" value="1" min="1" />
+            </label>
+          </div>
+
+          <p class="product-desc">
+            Icey Blue<br />These hip Icey Blue jeans are straight fit and sure
+            to make a statement! Show off your style with the eye-catching
+            design and make a splash with your wardrobe.
+          </p>
+
+          <!-- ADD TO CART + HEART BUTTON -->
+          <div class="cart-row">
+            <button class="cta-btn add-to-cart" aria-pressed="false">
+              Add To Cart
+            </button>
+
+            <button
+              class="wish-btn"
+              aria-pressed="false"
+              aria-label="Add to wishlist"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                aria-hidden="true"
+              >
+                <path
+                  class="outline"
+                  d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4c1.9-1 4.2-.4 5.8 1.3 1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  class="filled"
+                  d="M12 21s-7.5-4.8-9.2-7.1c-1.2-2.3.2-6 3.4-7.5 1.9-1 4.2-.4 5.8 1.3 1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Accordion -->
+          <div class="product-accordion">
+            <div class="acc-item">
+              <button class="acc-header" type="button">
+                <span>Shipping & Return</span>
+                <span class="acc-arrow">⌄</span>
+              </button>
+              <div class="acc-content">
+                <p>
+                  At B5IVE Denim, every order is shipped promptly and securely
+                  to ensure you receive our premium denim at its best. If, for
+                  any reason, you are not fully satisfied, our Return & Refund
+                  Policy allows you to request a return or replacement within 14
+                  days of delivery. All items must be unused, unwashed,
+                  undamaged, and returned in their original packaging with tags
+                  attached. Please keep your proof of purchase handy when you
+                  contact us.
+                </p>
+                <p>
+                  Refunds for prepaid orders are processed within 7–10 business
+                  days after inspection, while COD refunds are completed via
+                  bank transfer or UPI. Shipping charges are non-refundable. For
+                  any return or refund requests, contact our support team at
+                  bfivenew@gmail.com.
+                </p>
+              </div>
+            </div>
+
+            <div class="acc-item">
+              <button class="acc-header" type="button">
+                <span>More Details</span>
+                <span class="acc-arrow">⌄</span>
+              </button>
+              <div class="acc-content">
+                <p>
+                  Manufactured & Marketed by: Yellow Clothing Company <br />
+                  Address: 1st Floor, 101 Arihant Classic, Arihant Compound,
+                  Near Kopar Bus Depot, Bhiwandi, Thane, Maharashtra – 421302,
+                  India<br />
+                  Contact: sbfivenew@gmail.com | +91 7045451008
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- RELATED PRODUCTS (centered, 4 visible at once) -->
+    <section class="related-products">
+      <div class="container-responsive">
+        <h3 class="section-head centered">RELATED PRODUCTS</h3>
+
+        <div class="related-slider centered-slider" aria-hidden="false">
+          <button class="rel-nav rel-prev" aria-label="previous" type="button">
+            ‹
+          </button>
+
+          <div class="rel-viewport" id="relViewport" tabindex="0">
+            <div class="rel-track" id="relTrack">
+              <!-- Replace src with real images -->
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE03338.jpg" alt="Ice Blue Contrast" />
+                </div>
+                <h4 class="rel-title">ICEY BLUE WOMENS BAGGY FIT</h4>
+                <div class="rel-price">Rs. 1,696.00</div>
+              </article>
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE03887.jpg" alt="Cloudy Beach" />
+                </div>
+                <h4 class="rel-title">CLOUDY BEACH MEN’S BAGGY FIT</h4>
+                <div class="rel-price">Rs. 1,795.00</div>
+              </article>
+
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE02637.jpg" alt="Icey Blue" />
+                </div>
+                <h4 class="rel-title">G.O.A.T WOMEN’S BAGGY FIT</h4>
+                <div class="rel-price">Rs. 1,595.00</div>
+              </article>
+
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE02389.jpg" alt="Iced Butterfly" />
+                </div>
+                <h4 class="rel-title">BUTTERFLY EFFECT MEN’S BAGGY FIT</h4>
+                <div class="rel-price">Rs. 1,645.00</div>
+              </article>
+
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE02554.jpg" alt="Blue Patch" />
+                </div>
+                <h4 class="rel-title">ICED DOODLE WOMEN'S STRAIGHT FIT</h4>
+                <div class="rel-price">Rs. 1,749.00</div>
+              </article>
+
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/RICH043_6.jpg" alt="Stone Washed" />
+                </div>
+                <h4 class="rel-title">KNEE RAGE MEN’S STRAIGHT FIT</h4>
+                <div class="rel-price">Rs. 1,499.00</div>
+              </article>
+              <article class="rel-card">
+                <div class="rel-media">
+                  <img src="images/B5IVE04311.jpg" alt="Denim Wave" />
+                </div>
+                <h4 class="rel-title">ENG.BLUE WOMEN’S STRAIGHT FIT</h4>
+                <div class="rel-price">Rs. 1,599.00</div>
+              </article>
+            </div>
+          </div>
+
+          <button class="rel-nav rel-next" aria-label="next" type="button">
+            ›
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- LEFT SIDE -->
+        <div class="footer-left">
+          <img src="images/logo.jpg" class="footer-logo" alt="B5IVE Logo" />
+          <p class="footer-tagline">© 2024 B5IVE. Made With Love In India</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="footer-right">
+          <!-- PHONE -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3V21c0 .7-.6 1.3-1.3 1.3A19.7 19.7 0 0 1 2.7 3.3C2.7 2.6 3.3 2 4 2h3.1c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2l-2.1 2.2z"
+                />
+              </svg>
+              <span>+91 7045451008</span>
+            </div>
+
+            <button class="copy-btn" data-copy="+91 7045451008">📋</button>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="contact-row">
+            <div class="contact-box">
+              <svg viewBox="0 0 24 24" fill="black">
+                <path
+                  d="M2 4h20v16H2V4zm10 7 8-5H4l8 5zm-8 7h16V9l-8 5-8-5v9z"
+                />
+              </svg>
+              <span>Bfivenew@Gmail.Com</span>
+            </div>
+
+            <button class="copy-btn" data-copy="Bfivenew@Gmail.Com">📋</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- COPY BUTTON SCRIPT -->
+    <script>
+      const buttons = document.querySelectorAll(".copy-btn");
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const text = btn.getAttribute("data-copy");
+
+          navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = "✔"; // change icon
+            btn.classList.add("copied"); // turn green
+
+            setTimeout(() => {
+              btn.textContent = "📋";
+              btn.classList.remove("copied");
+            }, 1500);
+          });
+        });
+      });
+    </script>
+
+    <script src="js/spotted.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

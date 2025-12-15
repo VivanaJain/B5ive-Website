@@ -1,0 +1,236 @@
+/* NAVBAR STYLES (copied from your home CSS so navbar matches exactly) */
+.navbar {
+  background-color: #ffffff;
+}
+.navbar-brand img {
+  max-height: 45px;
+}
+.nav-link {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 18px !important;
+  color: #000 !important;
+}
+.nav-link:hover {
+  background-image: url("denim-texture.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #fff !important;
+}
+
+/* ============= PRODUCT LAYOUT ============= */
+
+:root {
+  --header-font: "Miller Banner Extra Compressed", serif;
+  --body-font: "Futura PT", sans-serif;
+  --denim-900: #0b2a47;
+  --muted-text: rgba(0, 0, 0, 0.66);
+  --accent-red: #d32f2f;
+  --control-bg: #ffffff;
+  --control-border: rgba(11, 42, 71, 0.08);
+}
+
+
+
+/* page container */
+.product-single {
+  padding: 40px 60px;
+}
+
+/* two-column layout (image | details) */
+.product-inner {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Image box */
+.product-media-wrap {
+  position: relative;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 520px; /* increase to be tall by default */
+}
+.product-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.3s;
+}
+.product-media:hover {
+  transform: scale(1.02);
+}
+
+/* Heart button */
+.media-like {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.media-like svg .filled {
+  display: none;
+}
+.media-like[aria-pressed="true"] svg .outline {
+  display: none;
+}
+.media-like[aria-pressed="true"] svg .filled {
+  display: inline;
+  fill: var(--accent-red);
+}
+
+/* DETAILS */
+.product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: none;
+}
+.product-title {
+  font-family: var(--header-font);
+  font-size: 44px;
+  color: #0b2a47;
+  margin: 0;
+}
+.product-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0b2a47;
+  margin-top: 6px;
+}
+
+/* controls: size + qty */
+.product-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+/* label wrapper */
+.control-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: var(--muted-text);
+  font-family: var(--body-font);
+}
+
+/* select style */
+.control-select {
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--control-bg);
+  border: 1px solid var(--control-border);
+  border-radius: 3px;
+  font-family: var(--body-font);
+  font-size: 14px;
+  min-width: 120px;
+}
+
+/* quantity input */
+.qty-label {
+  min-width: 100px;
+}
+.control-qty {
+  margin-top: 8px;
+  padding: 10px 12px;
+  width: 100%;
+  max-width: 120px;
+  border-radius: 3px;
+  border: 1px solid var(--control-border);
+  font-size: 14px;
+}
+
+/* description */
+.product-desc {
+  color: var(--muted-text);
+  max-width: none;
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+/* ADD TO CART BUTTON */
+.cta-btn {
+  background: #000;
+  color: #fff;
+  padding: 12px 22px;
+  border: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 100%; /* full width like example */
+  box-shadow: 0 12px 36px rgba(11, 42, 71, 0.08);
+}
+.cta-btn:hover {
+  background: var(--accent-red);
+}
+.add-to-cart[aria-pressed="true"] {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .product-inner {
+    grid-template-columns: 1fr;
+  }
+  .product-media-wrap {
+    min-height: 420px;
+  }
+  .cta-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .product-media-wrap {
+    min-height: 300px;
+  }
+  .product-title {
+    font-size: 28px;
+  }
+  .product-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .control-select,
+  .control-qty {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  /* Fullscreen background layer */
+  #hover-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 0;
+    pointer-events: none; /* ensures it doesn’t block clicks */
+
+    transition: opacity 0.4s ease;
+    z-index: -1; /* stays behind all content */
+  }
+
+  /* When active, fade in */
+  #hover-bg.active {
+    opacity: 1;
+  }
+}

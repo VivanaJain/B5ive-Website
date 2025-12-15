@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B5IVE Shopping Cart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Playfair+Display+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- Typography --- */
+      :root {
+        --hover-red: #d32f2f;
+        --primary-black: #000000;
+      }
+
+      body {
+        /* Fallback to Jost if Futura PT is not installed */
+        font-family: "Futura PT", "Jost", sans-serif;
+        color: #000;
+      }
+
+      .font-serif {
+        /* Fallback to Playfair Display SC if Miller Banner is not installed */
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        letter-spacing: 0.5px;
+      }
+
+      /* =========================================
+   3. NAVBAR & LOGO
+   ========================================= */
+      .navbar-brand img {
+        max-height: 45px;
+        width: auto;
+        filter: none;
+      }
+
+      .nav-link {
+        font-family: var(--body-font);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #0b2a47 !important;
+        transition: all 0.2s ease-in-out;
+        padding: 8px 18px !important;
+        margin: 0 5px;
+      }
+
+      .nav-link:hover {
+        background-image: url("images/denim-texture.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: #fff !important;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        transform: none;
+      }
+
+      .nav-link.active {
+        background-image: url("images/denim-texture.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #fff !important;
+        transition: none;
+      }
+
+      .nav-link:focus {
+        outline: 2px solid #0b2a47;
+        outline-offset: 3px;
+      }
+
+      /* =========================================
+   4. NAV ICONS
+   ========================================= */
+      .nav-icons {
+        align-items: center;
+      }
+
+      .nav-icons .nav-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 18px;
+        text-decoration: none;
+        transition: transform 0.12s ease, opacity 0.12s ease;
+        font-size: 1.1rem;
+        color: #000;
+        opacity: 0.95;
+      }
+
+      .nav-icons .nav-icon:hover {
+        transform: translateY(-2px);
+        opacity: 1;
+      }
+
+      .nav-icons .nav-icon svg .outline {
+        display: inline;
+      }
+      .nav-icons .nav-icon svg .filled {
+        display: none;
+      }
+      .nav-icons .nav-icon.active svg .outline {
+        display: none;
+      }
+      .nav-icons .nav-icon.active svg .filled {
+        display: inline;
+      }
+
+      .nav-icons .nav-icon svg {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .nav-icons .nav-icon svg path,
+      .nav-icons .nav-icon svg circle,
+      .nav-icons .nav-icon svg g {
+        vector-effect: non-scaling-stroke;
+      }
+
+      /* =========================================
+   5. DROPDOWN / MEGA MENU
+   ========================================= */
+      .nav-item.dropdown {
+        position: relative;
+      }
+
+      .custom-mega {
+        position: absolute;
+        top: calc(100% - var(--dropdown-gap));
+        left: 0;
+        width: 760px;
+        padding: 20px;
+        display: none;
+        background-color: #fff;
+        color: #0b2a47;
+        box-shadow: 0 12px 40px rgba(11, 42, 71, 0.12);
+        border-radius: 4px;
+        z-index: 1200;
+        margin-top: 0;
+      }
+
+      .nav-item.dropdown:hover .custom-mega,
+      .nav-item.dropdown:focus-within .custom-mega,
+      .nav-item.dropdown.open .custom-mega {
+        display: block;
+      }
+
+      .custom-mega .mega-col {
+        float: left;
+        width: 33.3333%;
+        padding: 8px 16px;
+      }
+
+      .custom-mega h4 {
+        margin: 0 0 8px 0;
+        font-family: var(--header-font);
+        font-size: 14px;
+        color: #0b2a47;
+        letter-spacing: 0.4px;
+      }
+
+      .custom-mega a {
+        display: block;
+        color: #0b2a47;
+        text-decoration: none;
+        padding: 6px 0;
+        font-size: 0.95rem;
+      }
+
+      .custom-mega a:hover {
+        color: var(--denim-700);
+      }
+
+      .custom-mega::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      @media (max-width: 992px) {
+        .custom-mega {
+          position: static;
+          width: 100%;
+          box-shadow: none;
+          border-radius: 0;
+          margin-top: var(--dropdown-gap);
+        }
+        .custom-mega .mega-col {
+          width: 100%;
+          padding: 10px 0;
+        }
+      }
+
+      /* --- Page Title --- */
+      .page-title-wrapper {
+        border-top: 3px solid #000;
+        border-bottom: 3px solid #000;
+        padding: 25px 0;
+        margin-bottom: 50px;
+        text-align: center;
+      }
+
+      .page-title {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 4rem;
+        margin: 0;
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      /* --- Cart Table Styles --- */
+      .cart-headings {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 1.3rem;
+        border-bottom: 1px solid #999;
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+      }
+
+      .product-title {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 2.2rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .product-meta {
+        color: #777;
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+      }
+
+      /* Quantity Selector */
+      .qty-box {
+        border: 1px solid #ccc;
+        display: inline-flex;
+        align-items: center;
+        width: 100px;
+        height: 40px;
+      }
+
+      .qty-btn {
+        background: none;
+        border: none;
+        width: 30px;
+        height: 100%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .qty-btn:hover {
+        color: #000;
+        background-color: #f0f0f0;
+      }
+
+      .qty-input {
+        border: none;
+        width: 40px;
+        text-align: center;
+        font-size: 1rem;
+        pointer-events: none; /* Prevent manual typing to keep it simple */
+      }
+
+      /* Remove Item Button */
+      .btn-remove {
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: #333;
+      }
+
+      /* --- Order Summary Section --- */
+      .summary-title {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 1.5rem;
+        border-bottom: 2px solid #000;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        display: inline-block;
+        min-width: 150px;
+      }
+
+      .summary-label {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 1.3rem;
+      }
+
+      .coupon-input {
+        border: 1px solid #999;
+        border-radius: 0;
+        padding: 8px 10px;
+        width: 100%;
+        max-width: 250px;
+      }
+
+      .coupon-helper {
+        font-size: 0.75rem;
+        color: #888;
+        margin-top: 5px;
+      }
+
+      .comment-box {
+        width: 100%;
+        border: 1px solid #999;
+        padding: 10px;
+        height: 150px;
+        resize: none;
+      }
+
+      /* --- Buttons with Hover Effect --- */
+      .btn-checkout {
+        display: block;
+        width: 100%;
+        max-width: 250px;
+        padding: 10px 0;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.9rem;
+        border: none;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s ease;
+
+        /* Initial State (Assuming Black based on brand, or Red based on image) */
+        /* Based on prompt "turn this color when hovered", I will set default to Black */
+        background-color: var(--primary-black);
+        color: white;
+      }
+
+      .btn-checkout:hover {
+        background-color: var(--hover-red); /* #D32F2F */
+        color: white;
+      }
+
+      /* --- Features & Newsletter --- */
+      .feature-box {
+        border: 1px solid #ccc;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px;
+        height: 100%;
+      }
+      .feature-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+      }
+      .feature-text {
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .newsletter-section {
+        text-align: center;
+        padding: 60px 0;
+      }
+      .newsletter-heading {
+        font-family: "Miller Banner Extra Condensed", "Playfair Display SC",
+          serif;
+        font-size: 3rem;
+        margin-bottom: 20px;
+      }
+      .newsletter-group {
+        border: 1px solid #ccc;
+        max-width: 450px;
+        margin: 0 auto;
+        display: flex;
+      }
+      .newsletter-input {
+        border: none;
+        flex-grow: 1;
+        padding: 10px 20px;
+        outline: none;
+      }
+      .newsletter-btn {
+        background: white;
+        border: none;
+        border-left: 1px solid #ccc;
+        padding: 0 20px;
+      }
+
+      /* Features Banner */
+      .feature-box {
+        border: 2px solid black;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .feature-box i {
+        font-size: 2.5rem;
+        margin-right: 20px;
+      }
+      .feature-box span {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      /* Newsletter */
+      .newsletter-input {
+        border: 2px solid black;
+        border-right: none;
+        padding: 15px;
+      }
+      .newsletter-btn {
+        border: 2px solid black;
+        background: white;
+        padding: 0 20px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1a1a1a;
+        color: white;
+        padding-top: 80px;
+        padding-bottom: 30px;
+      }
+      .copy-box-input {
+        background-color: #b3b3b3;
+        border: none;
+        padding-left: 50px;
+        font-weight: 500;
+      }
+      .copy-box-icon-left {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: black;
+        z-index: 5;
+      }
+      .btn-copy {
+        background-color: #b3b3b3;
+        border-left: 2px solid #1a1a1a;
+      }
+      .social-icons a {
+        color: white;
+        margin-left: 20px;
+        font-size: 1.2rem;
+      }
+
+      /* Mobile tweaks */
+      @media (max-width: 768px) {
+        .cart-headings {
+          display: none;
+        }
+        .col-price,
+        .col-qty,
+        .col-total {
+          margin-top: 15px;
+          text-align: left !important;
+        }
+        .page-title {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container-fluid px-4">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.jpg" alt="B5IVE Logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="MenJean.html">Men</a></li>
+            <li class="nav-item"><a class="nav-link" href="WomenJean.html">Women</a></li>
+            <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="navCollectionMenu"
+    role="button"
+    aria-expanded="false"
+  >Collection</a>
+
+  <div class="custom-mega" aria-labelledby="navCollectionMenu">
+    <div class="mega-col">
+      <a href="Brave.html">Brave</a>
+      <a href="Fearless.html">Fearless</a>
+      <a href="Innovative.html">Innovative</a>
+      <a href="Vogue.html">Vogue</a>
+      <a href="Exclusive.html">Exclusive</a>
+    </div>
+  </div>
+</li>
+
+            <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+          </ul>
+        </div>
+        <!-- Icons: inline SVG (outline + filled inside each SVG) -->
+        <div
+          class="nav-icons d-none d-lg-flex"
+          role="navigation"
+          aria-label="utilities"
+        >
+          <!-- Heart -->
+          <a
+            href="Wishlist.html"
+            class="nav-icon"
+            data-key="favorites"
+            aria-label="Favorites"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <path
+                class="outline"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <!-- filled -->
+              <path
+                class="filled"
+                d="M12 21s-7.5-4.8-9.2-7.1C1.6 11.6 3 7.9 6.2 6.4 8.1 5.4 10.4 6 12 7.7c1.6-1.7 3.9-2.3 5.8-1.3 3.2 1.5 4.6 5.2 3.4 7.5C19.5 16.2 12 21 12 21z"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+
+          <!-- Cart -->
+          <a href="/cart" class="nav-icon" data-key="cart" aria-label="Cart">
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M3 3h2l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path
+                  d="M6 7l1.6 9.6a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L22 7H6z"
+                />
+                <circle cx="10" cy="20" r="1.5" />
+                <circle cx="18" cy="20" r="1.5" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- User -->
+          <a
+            href="profile.html"
+            class="nav-icon"
+            data-key="account"
+            aria-label="Account"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="3" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M12 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path d="M4 20c1.7-3 4.9-5 8-5s6.3 2 8 5v1H4v-1z" />
+              </g>
+            </svg>
+          </a>
+
+          <!-- Search -->
+          <a
+            href="/search"
+            class="nav-icon"
+            data-key="search"
+            aria-label="Search"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              role="img"
+            >
+              <!-- outline -->
+              <g
+                class="outline"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="11" cy="11" r="5" />
+                <path d="M21 21l-4.3-4.3" />
+              </g>
+              <!-- filled -->
+              <g class="filled" fill="currentColor" stroke="none">
+                <path d="M11 16a5 5 0 1 0 0-10 5 5 0 0 0 0 10z" />
+                <path
+                  d="M21 21l-4.3-4.3"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+      </div>
+    </nav>
+
+    <div class="page-title-wrapper">
+      <h1 class="page-title">Your Cart</h1>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row cart-headings d-none d-md-flex">
+        <div class="col-md-5">Product</div>
+        <div class="col-md-2 text-center">Price</div>
+        <div class="col-md-3 text-center">Quantity</div>
+        <div class="col-md-2 text-end">Total</div>
+      </div>
+
+      <div class="row align-items-center mb-5 pb-4">
+        <div class="col-12 col-md-5 d-flex">
+          <div class="me-4" style="width: 140px; flex-shrink: 0">
+            <img
+              src="images/RICH043_6.jpg"
+              alt="Jeans"
+              class="img-fluid"
+              style="width: auto; height: 100%; object-fit: cover"
+            />
+          </div>
+          <div>
+            <h2 class="product-title">Knee Rage Men's<br />Straight Jeans</h2>
+            <p class="product-meta">
+              28
+              <a href="#" class="text-secondary ms-2"
+                ><i class="fa-regular fa-pen-to-square"></i
+              ></a>
+            </p>
+            <p class="product-meta">B5ive</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-2 text-center col-price">
+          <div class="d-md-none fw-bold mb-1">Price:</div>
+          <div class="fs-5">Rs.<br />1,995.00</div>
+        </div>
+
+        <div class="col-12 col-md-3 text-center col-qty">
+          <div class="d-md-none fw-bold mb-1">Quantity:</div>
+          <div class="qty-box mx-md-auto">
+            <button class="qty-btn" onclick="updateQty(-1)">-</button>
+            <input type="text" value="1" id="quantityInput" class="qty-input" />
+            <button class="qty-btn" onclick="updateQty(1)">+</button>
+          </div>
+        </div>
+
+        <div
+          class="col-12 col-md-2 text-end col-total d-flex justify-content-between justify-content-md-end align-items-center"
+        >
+          <div class="d-md-none fw-bold">Total:</div>
+          <div class="fs-5 fw-bold">Rs.<br />1,995.00</div>
+          <button class="btn-remove ms-4">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-5 col-md-6 mb-5">
+          <h3 class="summary-title">Order Summary</h3>
+
+          <div class="d-flex justify-content-between mb-4 mt-3">
+            <span class="summary-label">Sub-Total</span>
+            <span class="fs-5">Rs. 1,995.00</span>
+          </div>
+
+          <div class="mb-4">
+            <label class="summary-label mb-2 d-block">Coupon Code</label>
+            <input
+              type="text"
+              class="coupon-input"
+              placeholder="Enter Coupon Code"
+            />
+            <p class="coupon-helper">Coupon Code will be applied on checkout</p>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3 align-items-baseline">
+            <span class="summary-label">Total</span>
+            <span class="fs-5 fw-bold">Rs. 1,995.00</span>
+          </div>
+          <p class="text-muted small mb-4">
+            Tax included and Shipping calculated at checkout
+          </p>
+
+          <button class="btn-checkout">Proceed to Checkout</button>
+          <button class="btn-checkout">Continue Shopping</button>
+        </div>
+
+        <div class="col-lg-5 offset-lg-2 col-md-6">
+          <h3 class="summary-title">Additional Comments</h3>
+          <textarea
+            class="comment-box"
+            placeholder="Special instructions for the seller..."
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-5">
+        <div class="col-md-4">
+          <div class="feature-box">
+            <i class="fa-solid fa-truck feature-icon"></i>
+            <p class="feature-text">Free Shipping</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <i class="fa-solid fa-box-open feature-icon"></i>
+            <p class="feature-text">Easy Returns</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <i class="fa-solid fa-headset feature-icon"></i>
+            <p class="feature-text">24/7 Support</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="newsletter-section">
+        <h2 class="newsletter-heading">Sign Up For Our Newsletter</h2>
+        <form>
+          <div class="newsletter-group">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Your Email Address"
+            />
+            <button class="newsletter-btn" type="submit">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container mt-4">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="footer-logo">
+              <a class="navbar-brand" href="#">
+                <!-- LOGO Placeholder -->
+                <img
+                  src="images/logo.jpg"
+                  alt="B5IVE logo"
+                  height="40"
+                  style="display: inline-block; vertical-align: middle"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group mb-3 position-relative">
+              <i class="bi bi-telephone-fill copy-box-icon-left"></i>
+              <input
+                type="text"
+                class="form-control copy-box-input"
+                value="+91 7045451008"
+                readonly
+              />
+              <button class="btn btn-copy"><i class="bi bi-copy"></i></button>
+            </div>
+            <div class="input-group position-relative">
+              <i class="bi bi-envelope-fill copy-box-icon-left"></i>
+              <input
+                type="text"
+                class="form-control copy-box-input"
+                value="Bfivenew@Gmail.Com"
+                readonly
+              />
+              <button class="btn btn-copy"><i class="bi bi-copy"></i></button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="row mt-5 pt-4 d-flex align-items-center justify-content-between border-top border-secondary"
+        >
+          <div class="col-md-6">
+            <p class="mb-0 small text-white-50">
+              @ 2024 B5IVE. Made With Love In India
+            </p>
+          </div>
+          <div class="col-md-6 text-end social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function updateQty(change) {
+        const input = document.getElementById("quantityInput");
+        let currentValue = parseInt(input.value);
+
+        // Calculate new value
+        let newValue = currentValue + change;
+
+        // Enforce minimum value of 1
+        if (newValue < 1) {
+          newValue = 1;
+        }
+
+        input.value = newValue;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+%!Adobe-FontList 1.24
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MillerBannerExtraCompressed-Light
+FamilyName:Miller Banner Extra Compressed
+StyleName:Light
+FullName:Miller Banner Extra Compressed Light
+MenuName:Miller Banner Extra Compressed Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:F:\ISDI\SEM 5\Concept to code\end term\b5ive website\Font\fonnts.com-Miller_Banner_Extra_Compressed_Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:57564
+FileModTime:1764773286
+WeightClass:300
+WidthClass:1
+AngleClass:0
+NameArray:0,Win,1,Miller Banner Extra Compressed Light
+NameArray:0,Win,16,Miller Banner Extra Compressed
+TkD:TkD-56009-51f8eae1fcf8daadef4349600987cacea2ef64b0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MillerBannerExtraCompressed-Regular
+FamilyName:Miller Banner Extra Compressed
+StyleName:Regular
+FullName:Miller Banner Extra Compressed
+MenuName:Miller Banner Extra Compressed
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:F:\ISDI\SEM 5\Concept to code\end term\b5ive website\Font\fonnts.com-Miller_Banner_Extra_Compressed_Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:61484
+FileModTime:1764773652
+WeightClass:400
+WidthClass:1
+AngleClass:0
+NameArray:0,Win,1,Miller Banner Extra Compressed
+NameArray:0,Win,16,Miller Banner Extra Compressed
+TkD:TkD-56008-48de5924def0a237ec44dab78e71d3d17360b61e
+%EndFont
+
